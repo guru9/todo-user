@@ -1,22 +1,12 @@
 const restify = require('restify');
 const mongoose = require('mongoose');
 const config = require('./config');
-// const corsMiddleware = require('restify-cors-middleware');
 
 //create server
 const server = restify.createServer();
 
 //Middleware
 server.use(restify.plugins.bodyParser());
-
-// const cors = corsMiddleware({
-//     origins: ["*"],
-//     allowHeaders: ["Authorization"],
-//     exposeHeaders: ["Authorization"]
-// });
-
-// server.pre(cors.preflight);
-// server.use(cors.actual);
 
 //listen to port
 server.listen(config.PORT, () => {
