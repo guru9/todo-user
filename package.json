@@ -1,0 +1,37 @@
+{
+  "name": "todo-user",
+  "version": "1.0.0",
+  "description": "A CRUD based FULL STACK app by NodeJS and ReactJS.",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guru9/todo-user.git"
+  },
+  "keywords": [
+    "todo",
+    "user",
+    "crud",
+    "fullstack",
+    "react",
+    "node",
+    "mongo."
+  ],
+  "author": "GURURAJ MOGER",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guru9/todo-user/issues"
+  },
+  "homepage": "https://github.com/guru9/todo-user#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "mongoose": "^5.5.2",
+    "mongoose-timestamp": "^0.6.0",
+    "restify": "^8.3.0",
+    "restify-errors": "^7.0.0"
+  }
+}
