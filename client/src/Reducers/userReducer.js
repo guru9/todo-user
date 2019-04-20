@@ -10,7 +10,7 @@ const userReduser = (state = initialState, action) => {
     switch (action.type) {
         case USER_LOADING:
             return {
-                ...state, loading: action.payload
+                ...state, loading: true
             }
         case GET_USERS:
             return {

@@ -24,8 +24,7 @@ export const getAllUsers = () => (dispatch) => {
 //user loading
 export const setUserLoading = () => {
     return {
-        type: USER_LOADING,
-        payload: 'user loading...'
+        type: USER_LOADING
     }
 }
 

@@ -32,10 +32,10 @@ module.exports = server => {
             return next(new errors.InvalidContentError("Expects `application/json`"));
         }
 
-        const { name, email, balance } = req.body;
+        const { name, email, gender, balance } = req.body;
 
         const user = new User({
-            name, email, balance
+            name, email, gender, balance
         });
 
         try {
