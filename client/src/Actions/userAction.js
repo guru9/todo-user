@@ -1,4 +1,4 @@
-import { GET_USERS, USER_NOT_FOUND, USER_LOADING } from './userType';
+import { GET_USERS, USER_NOT_FOUND, USER_LOADING, EMPTY_USER } from './userType';
 import axios from 'axios';
 
 //get all users
@@ -7,10 +7,7 @@ export const getAllUsers = () => (dispatch) => {
 
     axios.get('/users')
         .then(res =>
-            dispatch({
-                type: GET_USERS,
-                payload: res.data
-            })
+            dispatch(totalUsers(res.data))
         )
         .catch(err =>
             dispatch({
@@ -28,3 +25,16 @@ export const setUserLoading = () => {
     }
 }
 
+export const totalUsers = (users) => {
+    if (users.length === 0) {
+        return {
+            type: EMPTY_USER
+        }
+    }
+    // else {
+    return {
+        type: GET_USERS,
+        payload: users
+    }
+    // }
+}

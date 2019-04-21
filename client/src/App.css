@@ -15,6 +15,10 @@
 
 /* user-card */
 .container {
+  padding: 50px;
+}
+
+.card-container {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -23,13 +27,22 @@
 }
 
 .card {
+  cursor: pointer;
   padding: 20px;
   position: relative;
-  border: 1px solid #282c34;
   border-radius: 5px;
   background-color: #1c222dd6;
-  cursor: pointer;
   transition: all 150ms ease;
+}
+
+.add-card{
+  border-style: dotted;
+  margin: auto;
+}
+
+.empty-card {
+  display: contents;
+  margin: auto;
 }
 
 .card:focus, .card:hover {
@@ -47,4 +60,76 @@
   font-size: 14px;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+
+/* loader */
+.lds-grid {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-grid div {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #9e249e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1565C0, #9e249e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1565C0, #9e249e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  animation: lds-grid 1.2s linear infinite;
+}
+.lds-grid div:nth-child(1) {
+  top: 6px;
+  left: 6px;
+  animation-delay: 0s;
+}
+.lds-grid div:nth-child(2) {
+  top: 6px;
+  left: 26px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(3) {
+  top: 6px;
+  left: 45px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(4) {
+  top: 26px;
+  left: 6px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(5) {
+  top: 26px;
+  left: 26px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(6) {
+  top: 26px;
+  left: 45px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(7) {
+  top: 45px;
+  left: 6px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(8) {
+  top: 45px;
+  left: 26px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(9) {
+  top: 45px;
+  left: 45px;
+  animation-delay: -1.6s;
+}
+@keyframes lds-grid {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
