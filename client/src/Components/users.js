@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Users = (props) => {
     const { users } = props
@@ -8,9 +9,9 @@ const Users = (props) => {
 
             {
                 users.length > 0 &&
-                <div className="card add-card">
+                <Link to="/addUser" className="card add-card">
                     <img src="https://img.icons8.com/nolan/64/000000/add-to-favorites.png" alt="add-user" />
-                </div>
+                </Link>
             }
 
             {
@@ -23,6 +24,9 @@ const Users = (props) => {
                         <div className="card" key={user._id}>
                             <section>
                                 {userImg}
+                                <Link to="/edituser">
+                                    <img src="https://img.icons8.com/nolan/64/000000/close-window.png" alt="edit-user" className="edit-user" />
+                                </Link>
                                 <h3 className="user-name">{user.name}</h3>
                                 <div className="user-role">{user.email}</div>
                             </section>

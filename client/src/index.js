@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import userReducer from './Reducers/userReducer';
 import thunk from 'redux-thunk';
+import Router from './router';
 
 const composeEnhancers =
     typeof window === 'object' &&
@@ -25,7 +25,7 @@ const store = createStore(userReducer, enhancer);
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <App />
+            <Router />
         </BrowserRouter>
     </Provider>, document.getElementById('root')
 );

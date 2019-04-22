@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { getAllUsers } from './Actions/userAction';
-import Users from './Components/users';
 import PropTypes from 'prop-types';
+
+import Users from './Components/users';
 import Loader from './Components/loader';
 import EmptyUser from './Components/emptyUser';
 
@@ -16,9 +17,9 @@ class App extends Component {
   }
 
   render() {
-    const { users, loading, addUser } = this.props
+    const { users, loading, emptyUser } = this.props
     const loader = loading === true ? <Loader /> : ''
-    const userAdd = addUser === true ? <EmptyUser /> : <Users users={users} />
+    const usersOrEmpty = emptyUser === true ? <EmptyUser /> : <Users users={users} />
 
     return (
       <div className="App">
@@ -30,7 +31,7 @@ class App extends Component {
           <h6>User Loading...</h6>
         </div>
         }
-        {userAdd}
+        {usersOrEmpty}
       </div>
     );
   }
@@ -42,7 +43,7 @@ App.propTypes = {
   users: PropTypes.array.isRequired,
   user: PropTypes.object,
   loading: PropTypes.bool.isRequired,
-  addUser: PropTypes.bool.isRequired
+  emptyUser: PropTypes.bool.isRequired
 }
 
 //complete responsive state will be rendered only after `this.props.getAllUsers()` called
@@ -51,7 +52,7 @@ const mapStateToProps = state => {
   return {
     users: state.users,
     loading: state.loading,
-    addUser: state.addUser,
+    emptyUser: state.emptyUser,
     user: state.user
   }
 }

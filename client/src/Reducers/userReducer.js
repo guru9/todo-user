@@ -4,7 +4,7 @@ const initialState = {
     users: [],
     user: null,
     loading: false,
-    addUser: false
+    emptyUser: false
 }
 
 const userReduser = (state = initialState, action) => {
@@ -21,7 +21,7 @@ const userReduser = (state = initialState, action) => {
             }
         case EMPTY_USER:
             return {
-                ...state, addUser: true, loading: false
+                ...state, emptyUser: true, loading: false
             }
         case USER_NOT_FOUND:
             return {

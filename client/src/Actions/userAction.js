@@ -25,16 +25,15 @@ export const setUserLoading = () => {
     }
 }
 
+//check totalUser
 export const totalUsers = (users) => {
     if (users.length === 0) {
         return {
             type: EMPTY_USER
         }
     }
-    // else {
     return {
         type: GET_USERS,
         payload: users
     }
-    // }
 }
