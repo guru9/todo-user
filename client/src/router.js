@@ -7,11 +7,17 @@ import EditUser from './Components/editUser';
 
 const Router = () => {
     return (
-        <Switch>
-            <Route path="/adduser" component={AddUser} />
-            <Route path="/edituser" component={EditUser} />
-            <Route exact path="/" component={App} />
-        </Switch>
+        <div className="App">
+            <header className="App-header">
+                Todo-User
+            </header>
+            <Switch>
+                <Route path="/adduser" component={AddUser} />
+                <Route path="/edituser" component={EditUser} />
+                <Route exact path="/" component={App} />
+            </Switch>
+        </div>
+
     )
 }
 

@@ -19,13 +19,10 @@ class App extends Component {
   render() {
     const { users, loading, emptyUser } = this.props
     const loader = loading === true ? <Loader /> : ''
-    const usersOrEmpty = emptyUser === true ? <EmptyUser /> : <Users users={users} />
+    const usersOrEmpty = (emptyUser === true || users === null) ? <EmptyUser /> : <Users users={users} />
 
     return (
-      <div className="App">
-        <header className="App-header">
-          Todo-User
-        </header>
+      <div>
         {loader && <div className="container">
           <h1>{loader}</h1>
           <h6>User Loading...</h6>

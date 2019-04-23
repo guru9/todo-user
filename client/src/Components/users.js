@@ -25,10 +25,12 @@ const Users = (props) => {
                             <section>
                                 {userImg}
                                 <Link to="/edituser">
-                                    <img src="https://img.icons8.com/nolan/64/000000/close-window.png" alt="edit-user" className="edit-user" />
+                                    <img src="https://img.icons8.com/nolan/64/000000/edit.png" alt="edit-user" className="edit-user" />
                                 </Link>
+                                <img src="https://img.icons8.com/nolan/64/000000/delete.png" alt="delete-user" className="delete-user" />
                                 <h3 className="user-name">{user.name}</h3>
                                 <div className="user-role">{user.email}</div>
+                                <div className="user-balance">{'\u20B9'}{user.balance}</div>
                             </section>
                         </div>
                     )

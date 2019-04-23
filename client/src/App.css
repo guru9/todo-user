@@ -16,6 +16,8 @@
 /* user-card */
 .container {
   padding: 50px;
+  margin: auto;
+  max-width: 600px;
 }
 
 .card-container {
@@ -62,16 +64,84 @@
   overflow: hidden;
 }
 
-.edit-user {
-  width: 35px;
+.user-balance {
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid #1565c08c;
+  border-radius: 15px;
+}
+
+.edit-user, .delete-user {
+  width: 25px;
   position: absolute;
   right: 15px;
-  top: 10px;
   display: none;
 }
 
-.card:hover .edit-user {
+.edit-user {
+  top: 10px;
+}
+
+.delete-user {
+  top: 50px;
+}
+
+.card:hover .edit-user, .card:hover .delete-user {
   display: block;
+}
+
+/* add-user */
+input {
+  outline: 0;
+  margin: 5px;
+  width: 85%;
+  border: 1px solid #7182a0cf;
+  background: #e5eaf3ba;
+  color: #fff;
+  padding: 5px;
+  height: 25px;
+  border-radius: 10px;
+}
+
+input::placeholder{
+  color: #1565C0 !important;
+}
+
+.button-enable {
+  color: #1565c0;
+  background: #e5eaf3;
+  border: 1px solid #fff;
+  width: 100px;
+  outline: 0;
+  border-radius: 5px;
+  font-size: 15px;
+  height: 30px;
+  margin-top: 10px;
+  box-shadow: 1px 1px 5px 1px #7182a0;
+  cursor: pointer;
+}
+
+.button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: transparent;
+  border: 1px solid #35a746;
+  color: #35a746;
+  width: 100px;
+  outline: 0;
+  border-radius: 5px;
+  font-size: 15px;
+  height: 30px;
+  margin-top: 10px;
+  box-shadow: 1px 1px 5px 1px #7182a0;
+}
+
+.button-enable, .button-disabled {
+
+}
+
+.adduser-card {
+  cursor: default !important;
 }
 
 /* loader */

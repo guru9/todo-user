@@ -1,4 +1,4 @@
-import { GET_USERS, USER_NOT_FOUND, USER_LOADING, EMPTY_USER } from './userType';
+import { GET_USERS, USER_LOADING, EMPTY_USER } from './userType';
 import axios from 'axios';
 
 //get all users
@@ -11,8 +11,8 @@ export const getAllUsers = () => (dispatch) => {
         )
         .catch(err =>
             dispatch({
-                type: USER_NOT_FOUND,
-                payload: err
+                type: GET_USERS,
+                payload: null
             })
         )
 }
@@ -36,4 +36,14 @@ export const totalUsers = (users) => {
         type: GET_USERS,
         payload: users
     }
+}
+
+//add new user
+export const addNewUser = (userData, history) => dispatch => {
+    axios.post('/users', userData)
+        .then(res =>
+            history.push('/'))
+        .catch(err => {
+            throw (err)
+        })
 }

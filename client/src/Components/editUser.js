@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditUser = () => {
+const EditUser = (prop) => {
     return (
         <div className="container">
             <h1>edit user</h1>

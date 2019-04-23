@@ -4,6 +4,7 @@
   "description": "A CRUD based FULL STACK app by NodeJS and ReactJS.",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "server": "node server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
