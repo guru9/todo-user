@@ -107,17 +107,14 @@ input::placeholder{
   color: #1565C0 !important;
 }
 
+input:focus {
+  border: 2px solid #fff;
+}
+
 .button-enable {
   color: #1565c0;
   background: #e5eaf3;
   border: 1px solid #fff;
-  width: 100px;
-  outline: 0;
-  border-radius: 5px;
-  font-size: 15px;
-  height: 30px;
-  margin-top: 10px;
-  box-shadow: 1px 1px 5px 1px #7182a0;
   cursor: pointer;
 }
 
@@ -127,6 +124,9 @@ input::placeholder{
   background: transparent;
   border: 1px solid #35a746;
   color: #35a746;
+}
+
+.button-enable, .button-disabled {
   width: 100px;
   outline: 0;
   border-radius: 5px;
@@ -134,10 +134,6 @@ input::placeholder{
   height: 30px;
   margin-top: 10px;
   box-shadow: 1px 1px 5px 1px #7182a0;
-}
-
-.button-enable, .button-disabled {
-
 }
 
 .adduser-card {

@@ -24,7 +24,7 @@ const Users = (props) => {
                         <div className="card" key={user._id}>
                             <section>
                                 {userImg}
-                                <Link to="/edituser">
+                                <Link to={'/edituser/' + user._id}>
                                     <img src="https://img.icons8.com/nolan/64/000000/edit.png" alt="edit-user" className="edit-user" />
                                 </Link>
                                 <img src="https://img.icons8.com/nolan/64/000000/delete.png" alt="delete-user" className="delete-user" />

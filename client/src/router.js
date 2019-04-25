@@ -13,7 +13,7 @@ const Router = () => {
             </header>
             <Switch>
                 <Route path="/adduser" component={AddUser} />
-                <Route path="/edituser" component={EditUser} />
+                <Route path="/edituser/:id" component={EditUser} />
                 <Route exact path="/" component={App} />
             </Switch>
         </div>

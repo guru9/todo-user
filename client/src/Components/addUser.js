@@ -14,9 +14,29 @@ class AddUser extends Component {
         };
     }
 
+    onKeyUpHandle = (target, e) => {
+        if (e.keyCode === 13) {
+            switch (target) {
+                case 'name':
+                    this.email.focus();
+                    break;
+                case 'email':
+                    this.gender.focus();
+                    break;
+                case 'balance':
+                    this.balance.focus();
+                    break;
+                case 'submit':
+                    this.submit.focus();
+                    break;
+                default:
+                    this.name.focus();
+                    break;
+            }
+        }
+    }
 
     handleInputChange = e => {
-
         this.setState({ [e.target.name]: e.target.value });
     }
 
@@ -36,13 +56,15 @@ class AddUser extends Component {
     render() {
         const { name, email, gender, balance } = this.state
 
-        let btnProp = (!name || !email || !gender) ? 'button-disabled' : 'button-enable';
+        const btnProp = (!name || !email || !gender) ? 'button-disabled' : 'button-enable';
 
-        let btnDisabled = (!name || !email || !gender) ?
+        const btnDisabled = (!name || !email || !gender) ?
             <button type="submit" className={btnProp} disabled>Submit</button> :
-            <button type="submit" className={btnProp} >Submit</button>;
-
-
+            <button type="submit" className={btnProp}
+                ref={(input) => { this.submit = input }}
+                onKeyUp={this.onKeyUpHandle.bind(this, 'submit')}>
+                Submit
+            </button>;
 
         return (
             <div className="container" >
@@ -54,12 +76,16 @@ class AddUser extends Component {
                                 name="name"
                                 value={name}
                                 onChange={this.handleInputChange}
+                                ref={(input) => { this.name = input }}
+                                onKeyUp={this.onKeyUpHandle.bind(this, 'name')}
                                 placeholder="Enter Name"
                             />
                             <input
                                 type="email"
                                 name="email"
                                 value={email}
+                                ref={(input) => { this.email = input }}
+                                onKeyUp={this.onKeyUpHandle.bind(this, 'email')}
                                 onChange={this.handleInputChange}
                                 placeholder="Enter Email"
                             />
@@ -68,6 +94,8 @@ class AddUser extends Component {
                                 name="gender"
                                 value={gender}
                                 onChange={this.handleInputChange}
+                                ref={(input) => { this.gender = input }}
+                                onKeyUp={this.onKeyUpHandle.bind(this, 'gender')}
                                 placeholder="Enter Gender"
                             />
                             <input
@@ -75,6 +103,8 @@ class AddUser extends Component {
                                 name="balance"
                                 value={balance}
                                 onChange={this.handleInputChange}
+                                ref={(input) => { this.balance = input }}
+                                onKeyUp={this.onKeyUpHandle.bind(this)}
                                 placeholder="Enter Balance"
                             />
                             {btnDisabled}
