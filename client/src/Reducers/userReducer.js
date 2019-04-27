@@ -1,10 +1,9 @@
-import { USER_LOADING, GET_USERS, EMPTY_USER, USER_NOT_FOUND } from '../Actions/userType';
+import { USER_LOADING, GET_USERS, EMPTY_USER, GET_SINGLE_USER, USER_NOT_FOUND, DELETE_USER } from '../Actions/userType';
 
 const initialState = {
     users: [],
-    user: null,
-    loading: false,
-    emptyUser: false
+    user: {},
+    loading: false
 }
 
 const userReduser = (state = initialState, action) => {
@@ -15,13 +14,11 @@ const userReduser = (state = initialState, action) => {
             }
         case GET_USERS:
             return {
-                ...state,
-                users: action.payload,
-                loading: false,
+                ...state, users: action.payload, loading: false,
             }
-        case EMPTY_USER:
+        case GET_SINGLE_USER:
             return {
-                ...state, emptyUser: true, loading: false
+                ...state, user: action.payload, loading: false
             }
         case USER_NOT_FOUND:
             return {

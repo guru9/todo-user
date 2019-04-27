@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { getAllUsers } from './Actions/userAction';
+import { getAllUsers, deleteUser } from './Actions/userAction';
 import PropTypes from 'prop-types';
 
 import Users from './Components/users';
 import Loader from './Components/loader';
 import EmptyUser from './Components/emptyUser';
+import { Redirect } from 'react-router-dom';
 
 class App extends Component {
 
   //props have evrything including initial state properties
   componentDidMount() {
-    console.log('props---', this.props)
-    this.props.getAllUsers()
+    this.props.getAllUsers(this.props.history)
+  }
+
+  deleteUser = (e) => {
+    const userId = e.target.getAttribute('value')
+    this.props.deleteUser(userId, this.props.history)
   }
 
   render() {
-    const { users, loading, emptyUser } = this.props
+    const { users, loading } = this.props
     const loader = loading === true ? <Loader /> : ''
-    const usersOrEmpty = (emptyUser === true || users === null) ? <EmptyUser /> : <Users users={users} />
-
     return (
       <div>
         {loader && <div className="container">
@@ -28,7 +31,7 @@ class App extends Component {
           <h6>User Loading...</h6>
         </div>
         }
-        {usersOrEmpty}
+        <Users users={users} onDelete={this.deleteUser} />
       </div>
     );
   }
@@ -37,21 +40,17 @@ class App extends Component {
 //what are there in props and what they are(..based on action and reducer)???  (..best practice)
 App.propTypes = {
   getAllUsers: PropTypes.func.isRequired,
-  users: PropTypes.array.isRequired,
-  user: PropTypes.object,
+  users: PropTypes.array,
   loading: PropTypes.bool.isRequired,
-  emptyUser: PropTypes.bool.isRequired
+  deleteUser: PropTypes.func.isRequired
 }
 
 //complete responsive state will be rendered only after `this.props.getAllUsers()` called
 const mapStateToProps = state => {
-  console.log('state----', state)
   return {
     users: state.users,
-    loading: state.loading,
-    emptyUser: state.emptyUser,
-    user: state.user
+    loading: state.loading
   }
 }
 
-export default connect(mapStateToProps, { getAllUsers })(App);
+export default connect(mapStateToProps, { getAllUsers, deleteUser })(App);
